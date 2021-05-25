@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doctor appointment form</title>
+    </head>
+    <body>
+        <form action="insert.php" method="POST">
+            <h1>Doctor appointment form</h1>
+            <h3>Enter details</h3>
+
+            <label for = "dname">Enter name:</label>
+            <input type = "text" id = "dname" name="dname"><br>
+
+            <label for = "did">Enter ID:</label>
+            <input type = "number" id = "did" name="did" min = "1000000000" max = "9999999999"><br>
+
+            <label for = "day">Enter date of appointment:</label>
+            <input type = "date" id = "day" name="day"><br>
+
+            <label for = "dtime">Enter time of appointment:</label>
+            <input type = "text" id = "dtime" name="dtime"><br>
+
+
+            <button type = "submit">Confirm slot</button>
+
+        </form>
+    </body>
+</html>

@@ -17,7 +17,7 @@ $ddate=$_POST["day"];
 $dtime=$_POST["dtime"];
 
 $sql = "INSERT INTO addAppointment (id,name,date,Time)
-VALUES ($docid,'$docname','$ddate','$dtime')";
+VALUES ('$docid','$docname','$ddate','$dtime')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -28,6 +28,8 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
+<<<<<<< HEAD
+=======
 <?php
 $servername = "localhost";
 $username = "root";
@@ -87,3 +89,4 @@ $conn->close();
   }
   $conn->close();
 ?>
+>>>>>>> da95f07b86d8e8cfe4571cbfc2b60ac910335e8b

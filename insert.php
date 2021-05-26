@@ -25,7 +25,7 @@ echo $dtime;
 
 
 $sql = "INSERT INTO addAppointment (id,name,date,Time)
-VALUES ($docid,'$docname','$ddate','$dtime')";
+VALUES ('$docid','$docname','$ddate','$dtime')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -35,3 +35,4 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+

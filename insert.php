@@ -36,8 +36,6 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
-<<<<<<< HEAD
-=======
 <?php
   $servername = "localhost";
   $username = "root";
@@ -71,4 +69,3 @@ $conn->close();
   }
   $conn->close();
 ?>
->>>>>>> da95f07b86d8e8cfe4571cbfc2b60ac910335e8b

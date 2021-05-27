@@ -71,7 +71,7 @@ $conn->close();
   $sql = "SELECT date, Time FROM addAppointment WHERE id = '$docid' ";
   $result = $conn->query($sql);
 
-  echo "<h2>Free appointments are:</h2>"
+  //echo "<h2>Free appointments are:</h2>"
 
   if ($result->num_rows > 0) {
 

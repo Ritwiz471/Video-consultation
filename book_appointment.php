@@ -1,8 +1,31 @@
 <?php
+session_start();
+?>
+
+<?php
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "testdata";
+  if (isset($_SESSION))
+{
+	echo 'Session exists<br />';
+}
+else
+{
+	echo 'NO Session exists<br />';
+}
+
+
+
+
+  $_SESSION["name"]=$_POST["pname"];
+  $_SESSION["email"]=$_POST["email"];
+  $_SESSION["aadhar"]=$_POST["pid"];
+  $_SESSION["age"]=$_POST["age"];
+  $_SESSION["bg"]=$_POST["bg"];
+
+  
   
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);

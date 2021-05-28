@@ -10,22 +10,30 @@
             <h3>Enter details</h3>
 
             <label for = "pname">Enter name:</label>
-            <input type = "text" id = "pname" name="pname"><br>
+            <input type = "text" id = "pname" name="pname" required><br>
 
             <label for = "email">Enter email:</label>
-            <input type = "text" id = "email" name="email"><br>
+            <input type = "text" id = "email" name="email" required><br>
 
             <label for = "pid">Enter Aadhar number:</label>
-            <input type = "number" id = "pid" name="pid" min = "1000000000" max = "9999999999"><br>
+            <input type = "number" id = "pid" name="pid" min = "1000000000" max = "9999999999" required><br>
 
             <label for = "age">Enter age:</label>
-            <input type = "number" id = "age" name="age"><br>
+            <input type = "number" id = "age" name="age" required><br>
 
             <label for = "bg">Enter blood group:</label>
-            <input type = "text" id = "bg" name="bg"><br>
+            <input type = "text" id = "bg" name="bg" required><br>
 
+            <label for = "spl">Enter specialisation of required doctor:</label>
+            <select name = "spl" id = "spl" required>
+                <option value = "pediatrics">pediatrics</option>
+                <option value = "gynaecology">gynaecology</option>
+                <option value = "psychiatry">psychiatry</option>
+                <option value = "dermatology">dermatology</option>
+                <option value = "physician">physician</option>
+            </select><br>
 
-            <button type = "submit">View slots</button>
+             <button type = "submit">View slots</button>
 
         </form>
     </body>

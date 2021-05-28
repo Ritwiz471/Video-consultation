@@ -1,5 +1,7 @@
+
 <?php
-session_start();
+session_start(); /*shows the table of all available appointments of the required category
+to the patient to book appointment. */
 ?>
 
 <?php
@@ -16,17 +18,14 @@ else
 	echo 'NO Session exists<br />';
 }
 
-
-
-
   $_SESSION["name"]=$_POST["pname"];
   $_SESSION["email"]=$_POST["email"];
   $_SESSION["aadhar"]=$_POST["pid"];
   $_SESSION["age"]=$_POST["age"];
   $_SESSION["bg"]=$_POST["bg"];
+  $_SESSION["psp"]=$_POST["spl"];
+  $s = $_SESSION["psp"];
 
-  
-  
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
@@ -34,9 +33,12 @@ else
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "SELECT * FROM addAppointment; ";
+  $sql = "SELECT * FROM addAppointment WHERE spl = '$s' ";
+  //selects and displays available slots of specific category only
   $result = $conn->query($sql);
 
+
+  //displays in table format
   echo "<form method = 'POST' action = 'confirm.php'>";
 	echo "<table width = '50%' border = '1'>";
 	echo "<tr>";

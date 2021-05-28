@@ -13,18 +13,27 @@ if ($conn->connect_error) {
 
 $docid=$_POST["did"];
 $docname=$_POST["dname"];
+$sp = $_POST["spl"];
 $ddate=$_POST["day"];
 $dtime=$_POST["dtime"];
 
-$sql = "INSERT INTO addAppointment (id,name,date,Time)
-VALUES ('$docid','$docname','$ddate','$dtime')";
+$sql = "INSERT INTO addAppointment (id,name,spl,date,Time)
+VALUES ('$docid','$docname','$sp','$ddate','$dtime')";
 
-if ($conn->query($sql) === TRUE) {
+/*if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
-}
+}*/
 
+if ($conn->query($sql) === TRUE) {
+  echo '<script type = "text/javascript">
+            alert("Your entry has been saved");
+            </script>';
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+/* displays message in alert box and on clicking ok you can view your appointments*/
 $conn->close();
 ?>
 

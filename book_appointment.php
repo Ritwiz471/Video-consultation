@@ -9,14 +9,14 @@ to the patient to book appointment. */
   $username = "root";
   $password = "";
   $dbname = "testdata";
-  if (isset($_SESSION))
+  /*if (isset($_SESSION))
 {
 	echo 'Session exists<br />';
 }
 else
 {
 	echo 'NO Session exists<br />';
-}
+}*/
 
   $_SESSION["name"]=$_POST["pname"];
   $_SESSION["email"]=$_POST["email"];
@@ -32,6 +32,13 @@ else
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
+
+/*if($_session name exists in booked appointments table){
+  Display appointment details
+  Display link to join meet
+}
+else{
+  DO ALL THIS BELOW:*/
   
   $sql = "SELECT * FROM addAppointment WHERE spl = '$s' ";
   //selects and displays available slots of specific category only

@@ -13,9 +13,10 @@ session_start();// confirms the appointment for the patient and displays doctor 
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-
-  
-  echo '<h1>Your appointment details are:</h1>';
+  echo '<link rel = "stylesheet" href = "confirm.css" >';
+  echo "<body><div>";
+  //echo '<h1>Your appointment details are:</h1>';
+  echo '<p style="text-align:center; font-weight:bold"> Your appointment details </p>';
 
   $option = explode(",", $_POST['id']);
   //saving all info about doctor in variables
@@ -25,11 +26,12 @@ session_start();// confirms the appointment for the patient and displays doctor 
   $doctTime=$option[3];
 
   // printing all the doctor information
-  echo 'Doctor id:'.$doctid.'<br>';
+  echo '<p>Doctor id:'.$doctid.'<br>';
   echo 'Doctor name:'.$doctname.'<br>';
   echo 'Date:'.$doctdate.'<br>';
   echo 'Time:'.$doctTime.'<br>';
-  echo 'Specialisation:'.$_SESSION["psp"].'<br>';
+  echo 'Specialisation:'.$_SESSION["psp"].'<br></p>';
+  echo "</div></body>";
 
   //saving patient info in variables
   $na=$_SESSION["name"];
@@ -44,7 +46,6 @@ session_start();// confirms the appointment for the patient and displays doctor 
   VALUES ('$na','$em','$ad','$ag','$blg','$doctname','$spls','$doctdate','$doctTime')";
   
   if ($conn->query($sql) === TRUE) {
-    echo "Appointment booked successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
@@ -57,4 +58,5 @@ if ($conn->query($sql) === TRUE) {
   echo "Error deleting record: " . $conn->error;
 }
 
+$conn->close();     
   ?>

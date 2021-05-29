@@ -9,14 +9,6 @@ to the patient to book appointment. */
   $username = "root";
   $password = "";
   $dbname = "testdata";
-  /*if (isset($_SESSION))
-{
-	echo 'Session exists<br />';
-}
-else
-{
-	echo 'NO Session exists<br />';
-}*/
 
   $_SESSION["name"]=$_POST["pname"];
   $_SESSION["email"]=$_POST["email"];
@@ -24,8 +16,7 @@ else
   $_SESSION["age"]=$_POST["age"];
   $_SESSION["bg"]=$_POST["bg"];
   $_SESSION["psp"]=$_POST["spl"];
-  $s = $_SESSION["psp"];
-
+ 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
@@ -33,37 +24,51 @@ else
     die("Connection failed: " . $conn->connect_error);
   }
 
-/*if($_session name exists in booked appointments table){
-  Display appointment details
-  Display link to join meet
-}
-else{
-  DO ALL THIS BELOW:*/
+  $patname = $_SESSION["name"];
+  $s = $_SESSION["psp"];
   
-  $sql = "SELECT * FROM addAppointment WHERE spl = '$s' ";
-  //selects and displays available slots of specific category only
+  $sql = "SELECT * FROM bookedAppointments WHERE name = '$patname' ";
   $result = $conn->query($sql);
+ 
+    if ($result->num_rows > 0) {
+      echo "<p>Your booked appointment is:</p>";
+        echo "<table><tr><th>Doctor name</th><th>Date</th><th>Time</th></tr>";
+  
+       $row = $result->fetch_assoc();
+        echo "<tr><td>".$row["doctorName"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
+        echo "</table>";
 
+   } 
+    else {
+    
+      $sql = "SELECT * FROM addAppointment WHERE spl = '$s' ";
+      $result = $conn->query($sql);
 
-  //displays in table format
-  echo "<form method = 'POST' action = 'confirm.php'>";
-	echo "<table width = '50%' border = '1'>";
-	echo "<tr>";
-		echo "<td></td>";
-		echo "<td>DOCTOR NAME</td>";
-		echo "<td>DATE</td>";
-		echo "<td>TIME</td>";
-	echo "</tr>";
-    while($row = $result->fetch_assoc()) {
+      echo '<link rel = "stylesheet" href = "patient_table.css">';
+      echo "<form method = 'POST' action = 'confirm.php'>";
+	   // echo "<table width = '50%' border = '1'>";
+     echo "<table>";
+	    echo "<tr>";
+      echo '<th colspan = "4" style = "background-color:#ececec">Available appointments</th></tr>';
+		  echo "<tr>";
+      echo "<td></td>";
+		  echo "<th>Name of doctor</th>";
+		  echo "<th>Date</th>";
+		  echo "<th>Time</th>";
+	    echo "</tr>";
+      while($row = $result->fetch_assoc()) {
         
-		echo "<tr>";
-			echo "<td><input type = 'radio' name = 'id' value = '".$row["id"].",".$row["name"].",".$row["date"].",".$row["Time"]."'></td>";
-            echo "<tr><td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["Time"]."</td></tr>";
+		    echo "<tr>";
+			  echo "<td><input class = 'rad' type = 'radio' name = 'id' value = '".$row["id"].",".$row["name"].",".$row["date"].",".$row["Time"]."'></td>";
+        echo "<td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["Time"]."</td>";
 
-		echo "</tr>";
-	}
-	echo "<tr><td colspan = '5' align = 'center'><input type = 'submit' name = 'go' value = 'GO'></td></tr>";
-	echo "</table>";
-	echo "</form>";
-  $conn->close();
-?>
+		    echo "</tr>";
+	    }
+	    echo "<tr><td colspan = '5' align = 'center'><input type = 'submit' name = 'confirm' value = 'Confirm' class = 'btn'></td></tr>";
+	    echo "</table>";
+	    echo "</form>";
+    }
+    $conn->close(); 
+ ?>
+  
+ 

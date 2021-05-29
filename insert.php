@@ -80,21 +80,60 @@ $conn->close();
   $sql = "SELECT date, Time FROM addAppointment WHERE id = '$docid' ";
   $result = $conn->query($sql);
 
-  //echo "<h2>Free appointments are:</h2>"
+  echo '<link rel = "stylesheet" href = "doctor_table.css"> ';
+  echo "<body>";
+  if ($result->num_rows > 0) {
+
+    // html table
+    echo '<table class = "unbooked"><tr><th class = "title1" colspan = "2">Unbooked appointments</th></tr><tr><th>Date</th><th>Time</th></tr>';
+
+    //output data of each row
+    while($row = $result->fetch_assoc()) {
+      //echo "<br>";
+      echo "<tr><td>".$row["date"]."</td><td>".$row["Time"]."</td></tr>";
+    }
+    echo "</table>";
+    echo "</body>";
+  } 
+  else {
+  }
+  $conn->close();
+?>
+
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "testdata";
+  
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+  $docname=$_POST["dname"];
+  $sql = "SELECT * FROM bookedAppointments WHERE doctorName = '$docname' ";
+  $result = $conn->query($sql);
+  echo '<link rel = "stylesheet" href = "doctor_table.css"> ';
+  echo "<body>";
 
   if ($result->num_rows > 0) {
 
     // html table
-    echo "<table><tr><th>Date</th><th>Time</th></tr>";
+    echo '<table class = "booked"><tr><th class = "title2" colspan = "7">Booked appointments</th></tr><br><tr><th>Patient name</th><th>Patient email ID</th><th>Patient aadhar number</th><th>Patient age</th><th>Patient blood group</th><th>Date</th><th>Time</th></tr>';
 
     //output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "<br>";
-      echo "<tr><td>".$row["date"]."</td><td>".$row["Time"]."</td></tr>";
+      //echo "<br>";
+      echo "<tr><td>".$row["name"]."</td><td>".$row["email"]."</td><td>".$row["aadhar"]."</td><td>".$row["age"]."</td><td>".$row["bloodGroup"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
     }
+    echo "</table>";
+    echo "</body>";
   } 
   else {
-    echo "No results";
+   // echo '<div class = "no_booked"><p>No booked appointments</p><div>';
   }
   $conn->close();
 ?>

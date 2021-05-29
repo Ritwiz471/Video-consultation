@@ -82,6 +82,7 @@ $conn->close();
 
   echo '<link rel = "stylesheet" href = "doctor_table.css"> ';
   echo "<body>";
+  
   if ($result->num_rows > 0) {
 
     // html table
@@ -116,6 +117,7 @@ $conn->close();
   $docname=$_POST["dname"];
   $sql = "SELECT * FROM bookedAppointments WHERE doctorName = '$docname' ";
   $result = $conn->query($sql);
+  echo '<a href = "https://agile-hamlet-79369.herokuapp.com/"><button>Start the video call</button></a> ';
   echo '<link rel = "stylesheet" href = "doctor_table.css"> ';
   echo "<body>";
 
@@ -135,5 +137,6 @@ $conn->close();
   else {
    // echo '<div class = "no_booked"><p>No booked appointments</p><div>';
   }
+  
   $conn->close();
 ?>

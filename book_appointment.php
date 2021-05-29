@@ -38,7 +38,7 @@ to the patient to book appointment. */
         echo "<tr><td>".$row["doctorName"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
         echo "</table>";
 
-
+        echo '<a href = "https://agile-hamlet-79369.herokuapp.com/"><button>Join the video call</button></a> ';
 
    } 
     else {

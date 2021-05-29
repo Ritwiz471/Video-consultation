@@ -59,6 +59,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
   echo "Error deleting record: " . $conn->error;
 }
-
+echo '<a href = "https://agile-hamlet-79369.herokuapp.com/"><button>Join the video call</button></a> ';
 $conn->close();     
   ?>

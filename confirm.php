@@ -14,9 +14,9 @@ session_start();// confirms the appointment for the patient and displays doctor 
     die("Connection failed: " . $conn->connect_error);
   }
   echo '<link rel = "stylesheet" href = "confirm.css" >';
-  echo "<body><div>";
-  //echo '<h1>Your appointment details are:</h1>';
-  echo '<p style="text-align:center; font-weight:bold"> Your appointment details </p>';
+  echo '<body><div class = "div1">';
+
+  echo '<div class = "div2"><p style="text-align:center; font-weight:bold;"> Your appointment details </p></div>';
 
   $option = explode(",", $_POST['id']);
   //saving all info about doctor in variables
@@ -26,6 +26,8 @@ session_start();// confirms the appointment for the patient and displays doctor 
   $doctTime=$option[3];
 
   // printing all the doctor information
+
+
   echo '<p>Doctor id:'.$doctid.'<br>';
   echo 'Doctor name:'.$doctname.'<br>';
   echo 'Date:'.$doctdate.'<br>';

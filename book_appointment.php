@@ -23,7 +23,7 @@ to the patient to book appointment. */
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-
+  echo '<link rel = "stylesheet" href = "already_confirmed.css"> ';
   $patname = $_SESSION["name"];
   $s = $_SESSION["psp"];
   
@@ -31,12 +31,14 @@ to the patient to book appointment. */
   $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {
-      echo "<p>Your booked appointment is:</p>";
-        echo "<table><tr><th>Doctor name</th><th>Date</th><th>Time</th></tr>";
+      echo '<table><tr><th colspan = "3" class = "booked">Your booked appointment</th></tr>';
+        echo "<tr><th>Doctor name</th><th>Date</th><th>Time</th></tr>";
   
        $row = $result->fetch_assoc();
         echo "<tr><td>".$row["doctorName"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
         echo "</table>";
+
+
 
    } 
     else {

@@ -2,27 +2,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel = "stylesheet" href = "patient_form.css">
         <title>Patient details form</title>
     </head>
     <body>
         <form action="book_appointment.php" method="POST">
-            <h1>Patient details</h1>
-            <h3>Enter details</h3>
+            <div>
+            <p>Patient details</p>
 
             <label for = "pname">Enter name:</label>
-            <input type = "text" id = "pname" name="pname" required><br>
+            <input type = "text" id = "pname" name="pname" required><br><br>
 
             <label for = "email">Enter email:</label>
-            <input type = "text" id = "email" name="email" required><br>
+            <input type = "text" id = "email" name="email" required><br><br>
 
             <label for = "pid">Enter Aadhar number:</label>
-            <input type = "number" id = "pid" name="pid" min = "1000000000" max = "9999999999" required><br>
+            <input type = "number" id = "pid" name="pid" min = "1000000000" max = "9999999999" required><br><br>
 
             <label for = "age">Enter age:</label>
-            <input type = "number" id = "age" name="age" required><br>
+            <input type = "number" id = "age" name="age" required><br><br>
 
             <label for = "bg">Enter blood group:</label>
-            <input type = "text" id = "bg" name="bg" required><br>
+            <input type = "text" id = "bg" name="bg" required><br><br>
 
             <label for = "spl">Enter specialisation of required doctor:</label>
             <select name = "spl" id = "spl" required>
@@ -31,9 +32,10 @@
                 <option value = "psychiatry">psychiatry</option>
                 <option value = "dermatology">dermatology</option>
                 <option value = "physician">physician</option>
-            </select><br>
+            </select><br><br>
 
-             <button type = "submit">View slots</button>
+             <button type = "submit" class = "btn">View slots</button>
+            </div>
 
         </form>
     </body>

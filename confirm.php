@@ -26,12 +26,13 @@ session_start();// confirms the appointment for the patient and displays doctor 
   $doctTime=$option[3];
 
   // printing all the doctor information
-
+  $d = date_create($doctdate);
+  $t = date_create($doctTime);
 
   echo '<p>Doctor id:'.$doctid.'<br>';
   echo 'Doctor name:'.$doctname.'<br>';
-  echo 'Date:'.$doctdate.'<br>';
-  echo 'Time:'.$doctTime.'<br>';
+  echo 'Date:'.date_format($d , "d M Y").'<br>';
+  echo 'Time:'.date_format($t, "h:i a").'<br>';
   echo 'Specialisation:'.$_SESSION["psp"].'<br></p>';
   echo "</div></body>";
 

@@ -35,9 +35,12 @@ to the patient to book appointment. */
         echo "<tr><th>Doctor name</th><th>Date</th><th>Time</th></tr>";
   
        $row = $result->fetch_assoc();
-        echo "<tr><td>".$row["doctorName"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
-        echo "</table>";
+       $d = date_create($row["date"]); //create date to format date
+       $t = date_create($row["time"]); //create date to format time
 
+        echo "<tr><td>".$row["doctorName"]."</td><td>".date_format($d, "d M Y")."</td><td>".date_format($t, "h:i a")."</td></tr>";
+        echo "</table>";
+    
         echo '<a href = "https://agile-hamlet-79369.herokuapp.com/"><button>Join the video call</button></a> ';
 
    } 
@@ -59,10 +62,11 @@ to the patient to book appointment. */
 		  echo "<th>Time</th>";
 	    echo "</tr>";
       while($row = $result->fetch_assoc()) {
-        
+        $d = date_create($row["date"]);
+        $t = date_create($row["Time"]);
 		    echo "<tr>";
 			  echo "<td><input class = 'rad' type = 'radio' name = 'id' value = '".$row["id"].",".$row["name"].",".$row["date"].",".$row["Time"]."'></td>";
-        echo "<td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["Time"]."</td>";
+        echo "<td>".$row["name"]."</td><td>".date_format($d, "d M Y")."</td><td>".date_format($t, "h:i a")."</td>";
 
 		    echo "</tr>";
 	    }

@@ -90,8 +90,10 @@ $conn->close();
 
     //output data of each row
     while($row = $result->fetch_assoc()) {
-      //echo "<br>";
-      echo "<tr><td>".$row["date"]."</td><td>".$row["Time"]."</td></tr>";
+      $d = date_create($row["date"]);
+      $t = date_create($row["Time"]);
+
+      echo "<tr><td>".date_format($d, "d M Y")."</td><td>".date_format($t, "h:i a")."</td></tr>";
     }
     echo "</table>";
     echo "</body>";
@@ -128,8 +130,10 @@ $conn->close();
 
     //output data of each row
     while($row = $result->fetch_assoc()) {
-      //echo "<br>";
-      echo "<tr><td>".$row["name"]."</td><td>".$row["email"]."</td><td>".$row["aadhar"]."</td><td>".$row["age"]."</td><td>".$row["bloodGroup"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td></tr>";
+
+      $d = date_create($row["date"]);
+      $t = date_create($row["time"]);
+      echo "<tr><td>".$row["name"]."</td><td>".$row["email"]."</td><td>".$row["aadhar"]."</td><td>".$row["age"]."</td><td>".$row["bloodGroup"]."</td><td>".date_format($d, "d M Y")."</td><td>".date_format($t, "h:i a")."</td></tr>";
     }
     echo "</table>";
     echo "</body>";

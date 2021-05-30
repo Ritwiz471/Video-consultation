@@ -14,6 +14,7 @@ As a doctor, he can sign in to our web-app and connect with patients online. He 
 
 
 What inspired us?
+
 Staying safe is our #1 priority right now. The scenario we are in right now demands the attention of online platforms. Virtual consultations have become extremely important to avoid further Spread of the virus and to reduce the risks of Contracting the virus too.  
  This made us realize that everyone in the clinic including the doctor would be at a risk of turning to be positive. This is how the virus is spreading. Going to the clinic may be avoided but consulting the doctor cannot. Another aspect could be that the patient is too sick to travel to the doctor, an online consultation would help them to be treated from the comfort of their home.
 If patients start meeting doctors on online platforms itself, we could reduce the spread of the virus in clinics and hospitals. 

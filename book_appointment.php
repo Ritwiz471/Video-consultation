@@ -51,7 +51,7 @@ to the patient to book appointment. */
 
       echo '<link rel = "stylesheet" href = "patient_table.css">';
       echo "<form method = 'POST' action = 'confirm.php'>";
-	   // echo "<table width = '50%' border = '1'>";
+	  
      echo "<table>";
 	    echo "<tr>";
       echo '<th colspan = "4" style = "background-color:#ececec">Available appointments</th></tr>';

@@ -58,7 +58,7 @@ session_start();// confirms the appointment for the patient and displays doctor 
 if ($conn->query($sql) === TRUE) {
   //echo "Record deleted successfully";
 } else {
-  echo "Error deleting record: " . $conn->error;
+ // echo "Error deleting record: " . $conn->error;
 }
 echo '<a href = "https://agile-hamlet-79369.herokuapp.com/"><button>Join the video call</button></a> ';
 $conn->close();     
